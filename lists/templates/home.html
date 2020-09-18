@@ -1,0 +1,16 @@
+<html>
+    <title>To-Do lists</title>
+    <body>
+        <h1>Your To-Do list</h1>
+        <form action="{% url 'lists:home' %}" method="post">
+            {% csrf_token %}
+            <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+        </form>
+        <table id="id_list_table">
+            <tr>
+                <td>1: </td>
+                <td>{{ item_text }}</td>
+            </tr>
+        </table>
+    </body>
+</html>
