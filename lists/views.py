@@ -6,4 +6,11 @@ from django.shortcuts import render
 
 def home_page(request):
     """домашняя страница"""
-    return HttpResponse('<html><title>To-Do lists</title></html>')
+    if request.POST.get('item_text', False) is not False:
+        context = {'item_text': request.POST.get('item_text')}
+    else:
+        context = {}
+
+    print(context)
+
+    return render(request, 'home.html', context)
