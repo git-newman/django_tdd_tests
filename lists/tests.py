@@ -2,8 +2,8 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 from django.test import TestCase, LiveServerTestCase
 from django.urls import resolve
-from superlists.lists.views import home_page
-from superlists.lists.models import Item
+# from superlists.lists.views import home_page
+from .models import Item
 
 # Create your tests here.
 
