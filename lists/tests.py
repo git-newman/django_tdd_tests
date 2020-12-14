@@ -1,14 +1,14 @@
 from django.http import HttpRequest
 from django.template.loader import render_to_string
-from django.test import TestCase
+from django.test import TestCase, LiveServerTestCase
 from django.urls import resolve
-from .views import home_page
-from .models import Item
+from superlists.lists.views import home_page
+from superlists.lists.models import Item
 
 # Create your tests here.
 
 
-class HomePageTest(TestCase):
+class HomePageTest(LiveServerTestCase):
     """тест домашней страницы"""
 
     def test_home_page_returns_correct_html(self):
@@ -28,7 +28,7 @@ class HomePageTest(TestCase):
         self.assertTemplateUsed(response, 'home.html')
 
 
-class ItemModelTest(TestCase):
+class ItemModelTest(LiveServerTestCase):
     """тест модели Item"""
 
     def test_saving_and_retrieving_items(self):
